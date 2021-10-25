@@ -1,5 +1,5 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -9,19 +9,27 @@
     --color-black: #0D0D0D;
     --color-gray: #404040;
     --color-light-red: #D94848;
-    --color-dark-light: #BF2E21;
+    --color-dark-red: #BF2E21;
+    --color-light-green: #317560;
+    --color-dark-green: #046464;
 }
+
+@font-face {
+    font-family: "OCR-A";
+    src: url(/assets/fonts/OCR-ABT.ttf);
+}
+
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: Poppins;
+    font-family: OCR-A;
     
 }
-
 .body {
     background-color: var(--color-black);
+    font-family: OCR-A;
 }
 
 #video_background {
@@ -40,48 +48,62 @@
 }
 
 .landing__img {
-    position: absolute;
+ 
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     object-fit: cover;
     object-position: 80%;
-    background: rgba(0, 0, 0, 0.7);
     animation-name: example;
     animation-delay: 0s;
     animation-duration: 2s;
     opacity: 1;
 }
-@keyframes example {
-    0%   {opacity: 0.25; transition: 0.5s;}
-    25%  {opacity: 0.5;transition: 0.5s;}
-    50%  {opacity: 0.75;transition: 0.5s;}
-    75%  {opacity: 1;transition: 0.5s;}
-    100% {opacity: 1;transition: 0.5s;}
-  }
+
 
 .landing__logo, .landing__music_cart,
-.landing__video, .landing__post{
+.landing__categories {
     cursor: pointer;
     color: var(--color-white);
     align-items: center;
 }
 
+/*===== Snow Effect =====*/
+
+@keyframes blink{
+    0%{
+        border-right-color:transparent;
+    }
+    50%{
+        border-right-color:transparent;
+    }
+    51%{
+        border-right-color:#fff;
+    }
+    100%{
+        border-right-color:#fff;
+    }
+    }
+    
+    canvas{
+    position: absolute;
+    width:100%;
+    height:100%;
+    }
+
+
 .landing__music_cart:hover,
-.landing__video:hover, .landing__post:hover{
-    background-color: var(--color-light-red);
+.landing__categories:hover,.cart:hover{
+    background-color: var(--color-light-green);
     transition: 0.5s;
 }
 
 .landing__music_cart {
     height: 3rem;
-    width: 8.5rem;
-    background-color: var(--color-black);
-    border-bottom-left-radius: 1.5rem;
+    width: 7.5rem;
 }
 .cart {
-    background-color: var(--color-black);
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -89,27 +111,17 @@
 
 .cart__items {
     display: flex;
-    background-color: var(--color-dark-light);
+    background-color: var(--color-dark-red);
     justify-content: center;
 }
 
-.landing__video {
+.landing__categories {
     height: 3rem;
     width: 10rem;
-    background-color: var(--color-black);
-    border-top-right-radius: 1.5rem;
-}
-
-.landing__post {
-    height: 3rem;
-    width: 10rem;
-    background-color: var(--color-black);
-    border-top-left-radius: 1.5rem;
 }
 
 .landing__logo h5 {
-    margin-top: 1rem;
-    margin-left: 3rem;
+    padding-top: 15px;
     font-size: 1.2rem;
     font-weight: 600;
 }
@@ -132,14 +144,16 @@
 .landing__line {
     font-size: 30px;
     font-weight: 300;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 /** LOADING BAR */
 
+
+
 .landing__button {
-    background: var(--color-light-red);
+    background: var(--color-light-green);
     color: var(--color-white);
     padding-left: 2rem;
     padding-right: 2rem;
@@ -151,7 +165,7 @@
 }
 
 .landing__button:hover {
-    background: var(--color-dark-light);
+    background: var(--color-dark-green);
 }
 
 .bar {
@@ -166,28 +180,25 @@
 .fill {
     height: 100%;
     width: 0%;
-    background: #D94848;
+    background: var(--color-white);
     transition: 0.1s;
     border-radius: 50px;
 }
 
-.counter {
-    padding-left: 300px;
+.fill-all {
+    height: 100%;
+    width: 100%;
+    background: var(--color-white);
+    transition: 0.1s;
+    border-radius: 50px;
 }
+
 .counter,.loading {
     font-size: 16px;
     font-weight: 600;
 }
 
 .output {
-    transition: 0.5s;
-    transition-duration: 50s;
-    width: 320px;
-    height: 240px;
-    background: #28293d;
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-    text-align: center;
     display: none;
     justify-content: center;
 }
